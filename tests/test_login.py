@@ -31,6 +31,6 @@ def test_login_success(login_page, dashboard_page, username, password): # login_
     with allure.step('Открыть страницу авторизации'):
         login_page.navigate()  # переход на страницу авторизации
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):
-        login_page.login('admin', 'admin')  # и заполнение полей логина и пароля
+        login_page.login(username, password)  # и заполнение полей логина и пароля
     with allure.step('Отображается приветственное сообщение с именем пользователя'):
         dashboard_page.assert_welcome_message(f"Welcome {username}")  # Проверяется, что на странице отображается корректное приветственное сообщение.
